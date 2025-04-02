@@ -1,12 +1,21 @@
-# React + Vite
+#  Frontend: Recomendador de Películas con React
+Este frontend es una interfaz web desarrollada con React.js que permite a los usuarios obtener recomendaciones de películas basadas en descripciones semánticas. La aplicación se conecta con una API en FastAPI, la cual utiliza inteligencia artificial para encontrar películas similares en función del contenido proporcionado por el usuario.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## Funcionalidad Principal
+1. Entrada de Usuario
+   - El usuario ingresa una breve descripción sobre una película que le gusta o el tipo de historia que desea ver.
+   - Ejemplo: "Una historia de venganza con mucha acción"
+2. Búsqueda y Recomendaciones
+   - Al presionar el botón "Buscar", la aplicación envía la descripción a la API de FastAPI.
+   - La API procesa la solicitud utilizando modelos de procesamiento del lenguaje natural (Sentence Transformers) y busca en la base de datos de películas almacenada en PostgreSQL con pgvector.
+   - Se retorna una lista de películas con títulos y descripciones similares a la consulta del usuario.
+3. Visualización de Resultados
+   - Las películas recomendadas se muestran en una lista con su título y breve descripción.
+   - Cada recomendación representa una película que coincide semánticamente con la descripción ingresada.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tecnologías Utilizadas
+- React.js con Vite → Para una interfaz rápida y ligera.
+- Axios → Para comunicarse con la API de FastAPI.
+- FastAPI + PostgreSQL → Backend que gestiona la búsqueda semántica.
